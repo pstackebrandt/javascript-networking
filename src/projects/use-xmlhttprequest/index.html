@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+
+<body>
+	<h2>Using the XMLHttpRequest Object to </h2>
+
+	<p>We use XMLHttpRequest to load github meta data of a github user 
+		account (currently pstackebrandt)</p>
+	<p>The request gets the name of a function which it will call on
+		the "load" event of the XMLHttpRequest.</p>
+	<p>The eventhandler can use data of the request using 'this'.</p>
+	<p>See the result on the browser console.</p>
+	<script>
+		function requestListener() {
+			console.log(this.responseText);
+		}
+
+		const request = new XMLHttpRequest();
+		request.addEventListener("load", requestListener);
+		request.open("GET", " https://api.github.com/users/pstackebrandt");
+		request.send();
+	</script>
+</body>
+
+</html>
